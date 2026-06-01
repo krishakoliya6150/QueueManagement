@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   const uri = process.env.MONGO_URI;
+  console.log("URI loaded:", uri);
   if (!uri) {
     console.error("MongoDB connection error: MONGO_URI is not set in Backend/.env");
     process.exit(1);
