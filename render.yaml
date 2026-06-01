@@ -1,0 +1,30 @@
+# Render Blueprint: deploy both backend + ML from one repo
+# Dashboard → New → Blueprint → connect repo → paste env values when prompted
+
+services:
+  - type: web
+    name: queuesense-backend
+    runtime: node
+    rootDir: Backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ML_SERVICE_URL
+        sync: false
+      - key: CLIENT_ORIGIN
+        sync: false
+
+  - type: web
+    name: queuesense-ml
+    runtime: python
+    rootDir: ML-Service
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT app:app
+    healthCheckPath: /health

@@ -1,0 +1,92 @@
+@use "../../style/button.scss";
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(165deg, var(--qs-bg-subtle) 0%, var(--qs-bg) 45%);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--qs-surface);
+  border-radius: var(--qs-radius-lg);
+  padding: 2rem;
+  box-shadow: var(--qs-shadow);
+  border: 1px solid var(--qs-border);
+}
+
+.auth-card__brand {
+  margin-bottom: 1.5rem;
+  text-align: center;
+
+  h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.35rem;
+    color: var(--qs-text);
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--qs-muted);
+  }
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--qs-text);
+  }
+
+  input {
+    font: inherit;
+    padding: 0.55rem 0.65rem;
+    border-radius: var(--qs-radius);
+    border: 1px solid var(--qs-border);
+    background: var(--qs-surface);
+    color: var(--qs-text);
+
+    &:focus {
+      outline: none;
+      border-color: var(--qs-accent);
+      box-shadow: 0 0 0 3px var(--qs-accent-soft);
+    }
+  }
+
+  &__error {
+    font-size: 0.8125rem;
+    color: var(--qs-danger);
+    margin: 0;
+  }
+
+  &__hint {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--qs-muted);
+    text-align: center;
+
+    a {
+      color: var(--qs-accent);
+      font-weight: 500;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
